@@ -87,18 +87,17 @@
                 </div>
             </div>
             
-<%--            <div class="row">
+ 			<div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="userProfiles">Skills</label>
+                    <label class="col-md-3 control-lable" for="userCompetencies">Skill</label>
                     <div class="col-md-7">
-                        <form:select path="userCompetencies" items="${roles}" multiple="true" itemValue="id" itemLabel="type" class="form-control input-sm" />
+                        <form:select path="userCompetencies" items="${skill}" multiple="true" itemValue="id" itemLabel="description" class="form-control input-sm" />
                         <div class="has-error">
                             <form:errors path="userCompetencies" class="help-inline"/>
                         </div>
                     </div>
                 </div>
-            </div>
-      --%>
+			</div> 
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="userProfiles">Roles</label>

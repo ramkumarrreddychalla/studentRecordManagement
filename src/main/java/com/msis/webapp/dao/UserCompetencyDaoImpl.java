@@ -9,18 +9,18 @@ import org.springframework.stereotype.Repository;
 
 import com.msis.webapp.model.Competencies;
 
-//@Repository("userCompetencyDao")
+@Repository("userCompetencyDao")
 public class UserCompetencyDaoImpl extends AbstractDao<Integer, Competencies>implements UserCompetencyDao{
 	
     public Competencies findById(int id) {
         return getByKey(id);
     }
  
-    public Competencies findByCompetency(String competency) {
+/*    public Competencies findByCompetency(String competency) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("competency", competency));
         return (Competencies) crit.uniqueResult();
-    }
+    }*/
     
     public Competencies findByDescription(String description) {
     	
@@ -32,7 +32,7 @@ public class UserCompetencyDaoImpl extends AbstractDao<Integer, Competencies>imp
     @SuppressWarnings("unchecked")
     public List<Competencies> findAll(){
         Criteria crit = createEntityCriteria();
-        crit.addOrder(Order.asc("competency"));
+        crit.addOrder(Order.asc("description"));
         return (List<Competencies>)crit.list();
     }
 

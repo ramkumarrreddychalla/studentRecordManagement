@@ -9,7 +9,7 @@ public interface UserCompetencyDao {
 	
     List<Competencies> findAll();
     
-    Competencies findByCompetency(String competency);
+/*    Competencies findByCompetency(String competency);*/
     
     Competencies findByDescription(String description);
      

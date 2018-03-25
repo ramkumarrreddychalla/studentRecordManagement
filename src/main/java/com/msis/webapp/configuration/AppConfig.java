@@ -17,6 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
  
 import com.msis.webapp.converter.RoleToUserProfileConverter;
+import com.msis.webapp.converter.SkillToCompetencyConverter;
  
  
 @SuppressWarnings("deprecation")
@@ -28,6 +29,9 @@ public class AppConfig extends WebMvcConfigurerAdapter{
      
     @Autowired
     RoleToUserProfileConverter roleToUserProfileConverter;
+    
+    @Autowired
+    SkillToCompetencyConverter skillToCompetencyConverter;
      
  
     /**
@@ -58,6 +62,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter((Converter<?, ?>) roleToUserProfileConverter);
+        registry.addConverter((Converter<?, ?>) skillToCompetencyConverter);
     }
      
  

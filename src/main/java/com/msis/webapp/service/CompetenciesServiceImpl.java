@@ -9,20 +9,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.msis.webapp.dao.UserCompetencyDao;
 import com.msis.webapp.model.Competencies;
 
-/*@Service("competenciesService")
-@Transactional*/
-public class CompetenciesServiceImpl /*implements CompetenciesService */{
+@Service("competenciesService")
+@Transactional
+public class CompetenciesServiceImpl implements CompetenciesService {
 	
-   /* @Autowired
-    UserCompetencyDao dao;*/
+    @Autowired
+    UserCompetencyDao dao;
      
-   /* public Competencies findById(int id) {
+    public Competencies findById(int id) {
         return dao.findById(id);
     }
  
-    public Competencies findByCompetency(String type){
+/*    public Competencies findByCompetency(String type){
         return dao.findByCompetency(type);
-    }
+    }*/
     
     public Competencies findByDescription(String type){
         return dao.findByDescription(type);
@@ -30,6 +30,6 @@ public class CompetenciesServiceImpl /*implements CompetenciesService */{
  
     public List<Competencies> findAll() {
         return dao.findAll();
-    }*/
+    }
 
 }

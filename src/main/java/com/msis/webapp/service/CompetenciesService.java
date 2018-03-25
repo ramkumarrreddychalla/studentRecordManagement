@@ -8,7 +8,7 @@ public interface CompetenciesService {
 	
 	Competencies findById(int id);
     
-	Competencies findByCompetency(String type);
+/*	Competencies findByCompetency(String type);*/
 	
 	Competencies findByDescription(String type);
      

@@ -23,7 +23,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
- 
+
+import com.msis.webapp.model.Competencies;
 import com.msis.webapp.model.User;
 import com.msis.webapp.model.UserProfile;
 import com.msis.webapp.service.CompetenciesService;
@@ -43,8 +44,8 @@ public class AppController {
     @Autowired
     UserProfileService userProfileService;
     
-/*    @Autowired
-    CompetenciesService competenciesService;*/
+    @Autowired
+    CompetenciesService competenciesService;
      
     @Autowired
     MessageSource messageSource;
@@ -66,6 +67,15 @@ public class AppController {
         model.addAttribute("users", users);
         model.addAttribute("loggedinuser", getPrincipal());
         return "userslist";
+    }
+    
+    /**
+     * This method will list all existing users.
+     */
+    @RequestMapping(value = {"/home" }, method = RequestMethod.GET)
+    public String homePage(ModelMap model) {
+ 
+        return "home";
     }
  
     /**
@@ -122,6 +132,7 @@ public class AppController {
     public String infoUser(@PathVariable String loggedinuser, ModelMap model) {
         User user = userService.findBySSO(loggedinuser);
         model.addAttribute("user", user);
+        model.addAttribute("userCompetency", user.getUserCompetencies());
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         return "userinfo";
@@ -205,6 +216,15 @@ public class AppController {
         return userProfileService.findAll();
     }
      
+    /**
+     * This method will provide UserProfile list to views
+     */
+    @ModelAttribute("skill")
+    public List<Competencies> initializeSkills() {
+        return competenciesService.findAll();
+    }
+     
+    
     /**
      * This method handles Access-Denied redirect.
      */

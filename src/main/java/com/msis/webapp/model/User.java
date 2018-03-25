@@ -2,6 +2,7 @@ package com.msis.webapp.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -51,9 +52,9 @@ public class User implements Serializable{
              inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
     private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
     
-    @NotEmpty
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "APP_USER_COMPETENCY", 
+    @JoinTable(name = "APP_USER_COMPETENCY",
              joinColumns = { @JoinColumn(name = "USER_ID") }, 
              inverseJoinColumns = { @JoinColumn(name = "COMPETENCIES_ID") })
     private Set<Competencies> userCompetencies = new HashSet<Competencies>();

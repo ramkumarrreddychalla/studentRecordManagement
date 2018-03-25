@@ -24,10 +24,10 @@ public class Competencies implements Serializable{
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id; 
  
-    @Column(name="COMPETENCY", length=15, nullable=false)
+/*    @Column(name="COMPETENCY", length=15, nullable=false)
     private String competency;// = UserProfileType.USER.getUserProfileType();
-    
-    @Column(name="DESCRIPTION", length=100, nullable=false)
+*/    
+    @Column(name="DESCRIPTION", unique=true, length=100)
     private String description;
       
     public Integer getId() {
@@ -38,13 +38,13 @@ public class Competencies implements Serializable{
         this.id = id;
     }
 
-	public String getCompetency() {
+/*	public String getCompetency() {
 		return competency;
 	}
 
 	public void setCompetency(String competency) {
 		this.competency = competency;
-	}
+	}*/
 
 	public String getDescription() {
 		return description;
@@ -53,7 +53,7 @@ public class Competencies implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-/*	
+	
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -84,12 +84,17 @@ public class Competencies implements Serializable{
             return false;
         return true;
     }
-*/
+
 
 	@Override
 	public String toString() {
-		return "Competencies [id=" + id + ", competency=" + competency + ", description=" + description + "]";
+		return "Competencies [id=" + id + ", description=" + description + "]";
 	}
 
+/*	@Override
+	public String toString() {
+		return "Competencies [id=" + id + ", competency=" + competency + ", description=" + description + "]";
+	}
+*/
 
 }
